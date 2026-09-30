@@ -1,0 +1,698 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Theme palette (dark is the default) ===== */
+:root {
+  --color-primary: #050816;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030;
+  --color-black-100: #100d25;
+  --color-black-200: #090325;
+  --color-white-100: #f3f3f3;
+  --color-text: #ffffff;
+}
+
+html.light {
+  --color-primary: #f4f2ff;
+  --color-secondary: #5a5478;
+  --color-tertiary: #ffffff;
+  --color-black-100: #e9e5ff;
+  --color-black-200: #ffffff;
+  --color-white-100: #2a2550;
+  --color-text: #1b1638;
+}
+
+body {
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light * {
+  color-scheme: light;
+}
+
+/* Plain white text becomes dark ink in light mode... */
+html.light .text-white,
+html.light .text-\[\#dfd9ff\] {
+  color: var(--color-text);
+}
+
+/* ...except on the dark electric cards and the dark mobile menu */
+.electric-card,
+html.light .black-gradient {
+  --color-primary: #050816;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030;
+  --color-black-100: #100d25;
+  --color-black-200: #090325;
+  --color-white-100: #f3f3f3;
+  --color-text: #ffffff;
+  color: #ffffff;
+}
+
+html.light .electric-card *,
+html.light .black-gradient * {
+  color-scheme: dark;
+}
+
+html.light .electric-card .text-white,
+html.light .black-gradient .text-white {
+  color: #ffffff;
+}
+
+html.light .theme-icon {
+  filter: invert(1);
+}
+
+/* timeline line + light-mode hero pattern */
+html.light .vertical-timeline::before {
+  background: #c9c1f2;
+}
+
+html.light .bg-hero-pattern {
+  background-blend-mode: soft-light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
+}
+
+.black-gradient {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.violet-gradient {
+  background: #804dee;
+  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+  background: -webkit-linear-gradient(
+    -90deg,
+    #804dee 0%,
+    rgba(60, 51, 80, 0) 100%
+  );
+}
+
+.green-pink-gradient {
+  background: "#00cea8";
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.orange-text-gradient {
+  background: #f12711; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #f12711,
+    #f5af19
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #f12711,
+    #f5af19
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green-text-gradient {
+  background: #11998e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #11998e,
+    #38ef7d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #11998e,
+    #38ef7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-text-gradient {
+  /* background: -webkit-linear-gradient(#eee, #333); */
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #2f80ed,
+    #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #2f80ed,
+    #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink-text-gradient {
+  background: #ec008c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #ec008c,
+    #fc6767
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #ec008c,
+    #fc6767
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* canvas- styles */
+.canvas-loader {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff,
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
+      1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff,
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff,
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff,
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff,
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff,
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+/* ===== Buttons: hover lift + glow, gradient flash on click ===== */
+.btn-gradient {
+  cursor: pointer;
+  background-size: 220% 220%;
+  transition: transform 0.2s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: rgba(54, 217, 255, 0.9);
+  box-shadow: 0 0 18px rgba(145, 94, 255, 0.6), 0 0 38px rgba(54, 217, 255, 0.28);
+}
+
+.btn-gradient:active {
+  transform: translateY(0) scale(0.95);
+  color: #fff;
+  background-image: linear-gradient(120deg, #915eff, #36d9ff, #ec4899, #915eff);
+  animation: btn-gradient-shift 0.7s linear infinite;
+}
+
+.btn-gradient:focus-visible,
+.electric-button:focus-visible {
+  outline: 2px solid #36d9ff;
+  outline-offset: 3px;
+}
+
+@keyframes btn-gradient-shift {
+  to {
+    background-position: 220% 50%;
+  }
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  border: 1px solid rgba(145, 94, 255, 0.55);
+  background-color: rgba(145, 94, 255, 0.14);
+  color: var(--color-text);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  animation: theme-icon-in 0.45s ease;
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  transform: rotate(25deg);
+}
+
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.send-button {
+  width: fit-content;
+  padding: 12px 32px;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 85, 247, 0.6);
+  background-color: #151030;
+  color: #fff;
+  font-weight: 700;
+  outline: none;
+}
+
+/* ===== Electric card (border animation, sparks, glow, hover light) ===== */
+.electric-card-wrapper {
+  --mx: 50%;
+  --my: 0%;
+  --ec-r: 34px;
+  --ec-pad: 34px 30px 28px;
+  position: relative;
+  width: 100%;
+  padding: 3px;
+  border-radius: var(--ec-r);
+  isolation: isolate;
+  transition: transform 0.3s ease;
+}
+
+.electric-card-wrapper:hover {
+  transform: translateY(-8px);
+}
+
+/* stretch to the height of the grid row */
+.electric-card-wrapper.ec-fill {
+  height: 100%;
+}
+
+.electric-card-wrapper.ec-fill .electric-card {
+  height: 100%;
+}
+
+/* colour themes */
+.ec-blue {
+  --ec-1: #302cff; --ec-2: #705cff; --ec-3: #36d9ff;
+  --ec-glow: #6258ff; --ec-rgb: 79, 70, 229; --ec-rgb2: 34, 211, 238;
+  --ec-tint: 48, 70, 140; --ec-bg1: #1a2852; --ec-bg2: #0d1423; --ec-bg3: #070b13;
+}
+.ec-green {
+  --ec-1: #059669; --ec-2: #10b981; --ec-3: #a3e635;
+  --ec-glow: #22c55e; --ec-rgb: 16, 185, 129; --ec-rgb2: 163, 230, 53;
+  --ec-tint: 20, 120, 85; --ec-bg1: #123a2e; --ec-bg2: #0a1915; --ec-bg3: #060d0b;
+}
+.ec-pink {
+  --ec-1: #be185d; --ec-2: #ec4899; --ec-3: #fb7185;
+  --ec-glow: #f472b6; --ec-rgb: 236, 72, 153; --ec-rgb2: 251, 113, 133;
+  --ec-tint: 150, 40, 100; --ec-bg1: #3a1630; --ec-bg2: #1a0d18; --ec-bg3: #0d070c;
+}
+.ec-purple {
+  --ec-1: #6d28d9; --ec-2: #a855f7; --ec-3: #f0abfc;
+  --ec-glow: #a855f7; --ec-rgb: 147, 51, 234; --ec-rgb2: 232, 121, 249;
+  --ec-tint: 100, 50, 170; --ec-bg1: #2a1650; --ec-bg2: #140c26; --ec-bg3: #0a0614;
+}
+.ec-orange {
+  --ec-1: #c2410c; --ec-2: #f97316; --ec-3: #fde047;
+  --ec-glow: #fb923c; --ec-rgb: 249, 115, 22; --ec-rgb2: 253, 224, 71;
+  --ec-tint: 150, 70, 20; --ec-bg1: #3b1d0e; --ec-bg2: #1a0f09; --ec-bg3: #0d0805;
+}
+.ec-cyan {
+  --ec-1: #0e7490; --ec-2: #06b6d4; --ec-3: #a5f3fc;
+  --ec-glow: #22d3ee; --ec-rgb: 6, 182, 212; --ec-rgb2: 165, 243, 252;
+  --ec-tint: 14, 110, 140; --ec-bg1: #0f3340; --ec-bg2: #08171d; --ec-bg3: #050d10;
+}
+
+/* clip layer so the spinning beam stays inside the card outline */
+.electric-border {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ec-r);
+  overflow: hidden;
+  z-index: -2;
+}
+
+.electric-border::before {
+  content: "";
+  position: absolute;
+  inset: -80%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 22deg,
+    var(--ec-1) 42deg,
+    var(--ec-2) 55deg,
+    #ffffff 64deg,
+    var(--ec-3) 76deg,
+    transparent 100deg,
+    transparent 360deg
+  );
+  animation: electric-spin 3s linear infinite;
+}
+
+.electric-card-wrapper:hover .electric-border::before {
+  animation-duration: 1.4s;
+}
+
+.electric-card-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ec-r);
+  box-shadow: 0 0 12px var(--ec-glow), 0 0 30px rgba(var(--ec-rgb), 0.9),
+    0 0 65px rgba(var(--ec-rgb), 0.65), 0 0 100px rgba(var(--ec-rgb2), 0.25);
+  animation: electric-glow 1.5s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.electric-card-wrapper:hover::after {
+  box-shadow: 0 0 18px var(--ec-glow), 0 0 45px rgba(var(--ec-rgb), 1),
+    0 0 90px rgba(var(--ec-rgb), 0.85), 0 0 140px rgba(var(--ec-rgb2), 0.45);
+}
+
+.electric-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--ec-r) - 3px);
+  background: radial-gradient(circle at 50% 0%, rgba(var(--ec-tint), 0.5), transparent 45%),
+    linear-gradient(145deg, var(--ec-bg1), var(--ec-bg2) 60%, var(--ec-bg3));
+}
+
+.electric-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--ec-r) - 4px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+}
+
+/* spotlight that follows the cursor */
+.electric-light {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    rgba(var(--ec-rgb2), 0.26),
+    rgba(var(--ec-rgb), 0.12) 45%,
+    transparent 70%
+  );
+}
+
+.electric-card-wrapper:hover .electric-light {
+  opacity: 1;
+}
+
+.electric-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--ec-pad);
+}
+
+.electric-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.electric-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.electric-description {
+  margin: 16px 0 22px;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #e8eaf0;
+}
+
+.electric-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 18px;
+}
+
+.electric-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.electric-list li {
+  margin: 12px 0;
+  font-size: 15px;
+  color: #e8eaf0;
+}
+
+.electric-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  border: 0;
+  border-radius: 40px;
+  background-color: #fff;
+  background-size: 220% 220%;
+  color: #10131b;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.electric-button img {
+  filter: invert(1);
+}
+
+.electric-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(var(--ec-rgb), 0.55), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.electric-button:active {
+  transform: scale(0.97);
+  color: #fff;
+  background-image: linear-gradient(120deg, var(--ec-1), var(--ec-2), var(--ec-3), var(--ec-1));
+  animation: btn-gradient-shift 0.7s linear infinite;
+}
+
+.electric-button:active img {
+  filter: none;
+}
+
+/* skill tiles */
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.skill-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* electrical sparks */
+.spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--ec-2), 0 0 25px var(--ec-3);
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.s1 { left: 8%; top: 0; animation: spark1 2.4s infinite; }
+.s2 { left: 28%; top: 0; animation: spark2 1.9s 0.5s infinite; }
+.s3 { left: 72%; top: 0; animation: spark3 2.1s 0.8s infinite; }
+.s4 { right: 0; top: 28%; animation: spark4 2.2s 0.2s infinite; }
+.s5 { right: 0; top: 67%; animation: spark5 1.8s 0.7s infinite; }
+.s6 { left: 25%; bottom: 0; animation: spark6 2.3s 0.4s infinite; }
+.s7 { left: 65%; bottom: 0; animation: spark7 1.7s 0.9s infinite; }
+.s8 { left: 0; top: 55%; animation: spark8 2s 0.3s infinite; }
+
+.electric-card-wrapper:hover .spark {
+  animation-duration: 1s;
+}
+
+/* off-screen cards pause their animations */
+.ec-paused .electric-border::before,
+.ec-paused .spark,
+.ec-paused::after {
+  animation-play-state: paused;
+}
+
+@keyframes electric-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes electric-glow {
+  from { opacity: 0.65; filter: blur(1px); }
+  to { opacity: 1; filter: blur(3px); }
+}
+
+@keyframes spark1 {
+  0%, 75%, 100% { opacity: 0; transform: translate(0, 0); }
+  80% { opacity: 1; }
+  90% { opacity: 1; transform: translate(12px, -5px); }
+}
+@keyframes spark2 {
+  0%, 70%, 100% { opacity: 0; }
+  75% { opacity: 1; transform: translate(0, 0); }
+  90% { opacity: 0; transform: translate(-15px, 7px); }
+}
+@keyframes spark3 {
+  0%, 72%, 100% { opacity: 0; }
+  78% { opacity: 1; }
+  90% { opacity: 0; transform: translate(10px, 8px); }
+}
+@keyframes spark4 {
+  0%, 65%, 100% { opacity: 0; }
+  70% { opacity: 1; }
+  88% { opacity: 0; transform: translate(8px, -12px); }
+}
+@keyframes spark5 {
+  0%, 74%, 100% { opacity: 0; }
+  79% { opacity: 1; }
+  93% { opacity: 0; transform: translate(-10px, 5px); }
+}
+@keyframes spark6 {
+  0%, 68%, 100% { opacity: 0; }
+  74% { opacity: 1; }
+  91% { opacity: 0; transform: translate(15px, 4px); }
+}
+@keyframes spark7 {
+  0%, 76%, 100% { opacity: 0; }
+  81% { opacity: 1; }
+  94% { opacity: 0; transform: translate(-10px, -6px); }
+}
+@keyframes spark8 {
+  0%, 70%, 100% { opacity: 0; }
+  76% { opacity: 1; }
+  90% { opacity: 0; transform: translate(-6px, 12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .electric-border::before,
+  .electric-card-wrapper::after,
+  .spark,
+  .btn-gradient:active,
+  .electric-button:active {
+    animation: none;
+  }
+}
