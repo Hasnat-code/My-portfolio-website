@@ -17,10 +17,8 @@ import {
   typescript,
   reactjs,
   nodejs,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  fiverr,
+  yusra,
   cpp,
   java,
   python,
@@ -237,10 +235,10 @@ const technologies: TTechnology[] = [
 const experiences: TExperience[] = [
   {
     title: "React.js Developer",
-    companyName: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    companyName: "Yusra Tech",
+    icon: yusra,
+    iconBg: "linear-gradient(135deg, #22D3EE, #4F46E5, #A855F7)",
+    date: "March 2026 - Present",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -250,10 +248,10 @@ const experiences: TExperience[] = [
   },
   {
     title: "React Native Developer",
-    companyName: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    companyName: "Fiverr",
+    icon: fiverr,
+    iconBg: "#1DBF73",
+    date: "Jan 2022 - Present",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -263,10 +261,10 @@ const experiences: TExperience[] = [
   },
   {
     title: "Web Developer",
-    companyName: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    companyName: "Fiverr",
+    icon: fiverr,
+    iconBg: "#1DBF73",
+    date: "Jan 2023 - present",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -276,16 +274,19 @@ const experiences: TExperience[] = [
   },
   {
     title: "Full stack Developer",
-    companyName: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
+    companyName: "Fiverr",
+    icon: fiverr,
+    iconBg: "#1DBF73",
     date: "Jan 2023 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+  "Designing modern, user-friendly interfaces for websites and mobile applications.",
+  "Creating wireframes, mockups, prototypes, and high-fidelity UI designs using Figma.",
+  "Designing responsive layouts for desktop, tablet, and mobile devices.",
+  "Creating consistent design systems, color palettes, typography, and reusable UI components.",
+  "Collaborating with clients and developers to transform ideas into polished digital experiences.",
+  "Improving existing interfaces based on usability, visual hierarchy, and user feedback.",
+],
+
   },
 ];
 
@@ -293,26 +294,26 @@ const testimonials: TTestimonial[] = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
+    name: "Hammad Hussain",
     designation: "CFO",
     company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    image: "https://avatars.githubusercontent.com/u/266839977?v=4",
   },
   {
     testimonial:
       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
+    name: "Hamdan Shahid",
     designation: "COO",
     company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQHJICUU5szjyg/profile-displayphoto-crop_800_800/B4DZ3f8WjXG4AI-/0/1777578634187?e=1792627200&v=beta&t=0hjRP4ZD6N2kJMZ2i8dwIC1cf9syVpGXNt0eUvIMZj8",
   },
   {
     testimonial:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
+    name: "Najam",
     designation: "CTO",
     company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh-yz-9egughUsTKnbD4Os4cgbnLA70dl6cZcEMKeNw&s=10",
   },
 ];
 

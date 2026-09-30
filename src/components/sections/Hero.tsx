@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 import { styles } from "../../constants/styles";
-import { ComputersCanvas } from "../canvas";
 import { config } from "../../constants/config";
 
 const Hero = () => {
@@ -25,8 +24,6 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      <ComputersCanvas />
 
       <div className="xs:bottom-10 absolute bottom-32 flex w-full items-center justify-center">
         <a href="#about">
