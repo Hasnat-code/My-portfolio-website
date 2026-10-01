@@ -4,26 +4,22 @@ A modern portfolio website built with React, TypeScript, Tailwind CSS, and Three
 
 ## Preview
 
-<div align="center">
-  <img src="./src/assets/herobg.png" alt="Home preview" width="100%" />
-</div>
-
 ### Home
 
 <div align="center">
-  <img src="./src/assets/herobg.png" alt="Home section" width="100%" />
+  <img src="./src/assets/company/home.png" alt="Home preview" width="100%" />
 </div>
 
 ### Experience
 
 <div align="center">
-  <img src="./src/assets/creator.png" alt="Experience section" width="100%" />
+  <img src="./src/assets/company/experience.png" alt="Experience section" width="100%" />
 </div>
 
 ### Projects
 
 <div align="center">
-  <img src="./src/assets/tripguide.png" alt="Projects section" width="100%" />
+  <img src="./src/assets/company/project.png" alt="Projects section" width="100%" />
 </div>
 
 ## Tech Stack
